@@ -122,6 +122,7 @@ class Node{
 	    */
 		// "find" is a bad name for a function that returns a boolean, in my opinion, but it's what I'm stuck with
 	   public boolean find(Node root, int key) {
+			// I could do it iteratively, but doing it recursively because I'm very lazy
 			if(root == null)
 				return false;
 			else if(root.value == key)

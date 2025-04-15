@@ -74,7 +74,7 @@ class Node{
 	   
 	   /**
 		* Prints the value of every node in inorder order
-		* @param root
+		* @param root the root of the tree
 	    */
 	   public void inOrderTraversal(Node root) {
 			if(root == null)
@@ -92,12 +92,22 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   post-order traversal
-	   */
-	  
-	   public void postOrderTraversal(Node root){
-         //implement in here
+	   /**
+		* Prints the value of every node in postorder order
+		* @param root the root of the tree
+	    */
+	   public void postOrderTraversal(Node root) {
+			if(root == null)
+				return;
+			
+			// traverse left subtree
+			postOrderTraversal(root.left);
+
+			// traverse right subtree
+			postOrderTraversal(root.right);
+
+			// print value of this node
+			System.out.print(root.value + " ");
 		   
 	   }
 	   

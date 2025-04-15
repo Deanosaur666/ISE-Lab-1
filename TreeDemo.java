@@ -22,25 +22,31 @@ class Node{
 	   /*
 	   inserts a node into the tree
 	   */
+	  /**
+	   * Inserts a new value into the binary search tree, as a leaf node
+	   * @param value the value to insert into the tree
+	   */
 	   public void insert(int value){
 	      //tree is empty
-	      if(root == null){
+	      if(root == null) {
 	         root = new Node(value);
 	         return;
-	      }else{
+	      }
+		  else {
 	         Node current = root;
 	         Node parent = null;
 	         
-	         while(true){
+	         while(true) {
 	            parent = current;
 	            
-	            if(value < current.value){
+	            if(value < current.value) {
 	               current = current.left;
 	               if(current == null){
 	                  parent.left = new Node(value);
 	                  return;
 	               }
-	            }else{
+	            }
+				else {
 	               current = current.right;
 	               if(current == null){
 	                  parent.right = new Node(value);
@@ -57,9 +63,23 @@ class Node{
 	   pre-order traversal
 	   Prints the value of every node preorder
 	   */
+	  /**
+	   * Prints the value of every node in preorder order
+	   * @param root the root of the tree
+	   */
 	   public void preOrderTraversal(Node root){
 		//implement in here
-		   
+		   	if(root == null)
+		   		return;
+			// print value of the node
+			System.out.print(root.value + " ");
+
+			// traverse left subtree
+			preOrderTraversal(root.left);
+
+			// traverse right subtree
+			preOrderTraversal(root.right);
+
 	   }
 
 	   
@@ -157,7 +177,7 @@ class Node{
 	public class TreeDemo{
 	   public static void main(String[] args){
 	      BinarySearchTree t1  = new BinarySearchTree();
-	      t1.insert( 24);
+	      t1.insert(24);
 	      t1.insert(80);
 	      t1.insert(18);
 	      t1.insert(9);

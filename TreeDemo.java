@@ -154,12 +154,24 @@ class Node{
 	  
 	  
 	  
-	   /*
-	   a method to find the node in the tree
-	   with a largest key
-	   */
-	   public int getMax(Node root){
-         //implement in here
+	   /**
+		* A method that finds the maximum value in the binary search tree
+		* @param root the root node of the tree
+		* @return the maximum value of a node in the binary search tree
+		* @throws IllegalArgumentException if the root is null
+	    */
+	   public int getMax(Node root) {
+			if(root == null)
+				throw new IllegalArgumentException("Root cannot be null.");
+			else if(root.left == null && root.right == null)
+				return root.value;
+			else if(root.left == null)
+				return Math.max(root.value, getMax(root.right));
+			else if(root.right == null)
+				return Math.max(root.value, getMax(root.left));
+			else
+				return Math.max(root.value, Math.max(getMax(root.left), getMax(root.right)));
+
 	   }
 	   
 	   

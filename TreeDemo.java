@@ -133,13 +133,23 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   a method to find the node in the tree
-	   with a smallest key
-	   */
-	   public int getMin(Node root){
-         //implement in here
-	      
+	   /**
+		* A method that finds the minimum value in the binary search tree
+		* @param root the root node of the tree
+		* @return the minimum value of a node in the binary search tree
+		* @throws IllegalArgumentException if the root is null
+	    */
+	   public int getMin(Node root) {
+			if(root == null)
+				throw new IllegalArgumentException("Root cannot be null.");
+			else if(root.left == null && root.right == null)
+				return root.value;
+			else if(root.left == null)
+				return Math.min(root.value, getMin(root.right));
+			else if(root.right == null)
+				return Math.min(root.value, getMin(root.left));
+			else
+				return Math.min(root.value, Math.min(getMin(root.left), getMin(root.right)));
 	   }
 	  
 	  

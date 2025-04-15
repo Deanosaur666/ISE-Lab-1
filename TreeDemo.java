@@ -14,14 +14,6 @@ class Node{
 
 	   Node root;
 	  
-	   
-	   /*
-	   recursive insert method
-		
-	   */
-	   /*
-	   inserts a node into the tree
-	   */
 	  /**
 	   * Inserts a new value into the binary search tree, as a leaf node
 	   * @param value the value to insert into the tree
@@ -59,19 +51,15 @@ class Node{
 	      }//closing main if-else 
 	   }
 	   
-	   /*
-	   pre-order traversal
-	   Prints the value of every node preorder
-	   */
 	  /**
 	   * Prints the value of every node in preorder order
 	   * @param root the root of the tree
 	   */
-	   public void preOrderTraversal(Node root){
-		//implement in here
+	   public void preOrderTraversal(Node root) {
 		   	if(root == null)
 		   		return;
-			// print value of the node
+			
+			// print value of this node
 			System.out.print(root.value + " ");
 
 			// traverse left subtree
@@ -84,11 +72,22 @@ class Node{
 
 	   
 	   
-	   /*
-	   in-order traversal
-	   */
-	   public void inOrderTraversal(Node root){
-	      //implement in here
+	   /**
+		* Prints the value of every node in inorder order
+		* @param root
+	    */
+	   public void inOrderTraversal(Node root) {
+			if(root == null)
+				return;
+			
+			// traverse left subtree
+			inOrderTraversal(root.left);
+
+			// print value of this node
+			System.out.print(root.value + " ");
+
+			// traverse right subtree
+			inOrderTraversal(root.right);
 	   }
 	   
 	   

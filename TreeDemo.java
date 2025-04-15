@@ -113,13 +113,21 @@ class Node{
 	   
 	   
 	   
-	   /*
-	   a method to find the node in the tree
-	   with a specific value
-	   */
-	   public boolean find(Node root, int key){
-		 //implement in here
-		  
+	   
+	   /**
+		* A method that checks if a node with the given value exists in the tree
+		* @param root the root of the tree
+		* @param key the value to look for
+		* @return true if the key exists in the tree, and fals if it doesn't
+	    */
+		// "find" is a bad name for a function that returns a boolean, in my opinion, but it's what I'm stuck with
+	   public boolean find(Node root, int key) {
+			if(root == null)
+				return false;
+			else if(root.value == key)
+				return true;
+			else
+				return find(root.left, key) || find(root.right, key);
 	   }
 	   
 	   
